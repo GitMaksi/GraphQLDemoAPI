@@ -8,7 +8,7 @@ public class BlobServiceService : IBlobStorageService
 
     public BlobServiceService()
     {
-        _blobServiceClient = new BlobServiceClient("DefaultEndpointsProtocol=https;AccountName=maxecommercestorage;AccountKey=Ne0w+PAco1G4XGTMSgtJva24eDnOBsoB1m3+oFc6czMqh+kRJUitbykIPPsonCfYDgPzmhxZNgKB+AStjA50yQ==;EndpointSuffix=core.windows.net");
+        _blobServiceClient = new BlobServiceClient("");
     }
 
     public async Task UploadProductJsonAsync(string productName, string productImageUrl)
