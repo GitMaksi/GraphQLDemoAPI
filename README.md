@@ -1,26 +1,25 @@
-# Nazwa Projektu eCommerce
+# eCommerce Project
 
-Opis projektu
+Project Description
 
-Krótki opis Twojego projektu eCommerce, jego głównych funkcji i celu. Napisz, co sprawia, że Twój projekt się wyróżnia.
+ECommerce project for Azure services training
 
-## Funkcje
+## Features
 
-* Bezpieczne przechowywanie poufnych danych z Azure Key Vault.
-* Zarządzanie wiadomościami i komunikacja międzyserwisowa za pomocą Azure Service Bus.
-* Przechowywanie obrazów i dokumentów z wykorzystaniem Azure Blob Storage.
-* Dodaj więcej funkcji specyficznych dla Twojego projektu.
+* Secure storage of sensitive data with Azure Key Vault.
+* Message handling and inter-service communication using Azure Service Bus.
+* Image and document storage utilizing Azure Blob Storage.
 
-## Technologie
+## Technologies
 
 * Azure Service Bus
 * Azure Key Vault
 * Azure Blob Storage
-* ... (inne używane technologie)
+* GraphQl
 
-## Wymagania wstępne
+## Prerequisites
 
 * Azure Subscription
-* .NET Core (wersja)
-* Visual Studio (wersja) lub inny IDE
-* Azure CLI lub PowerShell (opcjonalnie)
+* .NET Core 6
+* Visual Studio or another IDE
+* Azure CLI or PowerShell (optional)
