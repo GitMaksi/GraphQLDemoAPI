@@ -1,10 +1,10 @@
 using GraphQL.Types;
 using GraphQL;
 using GraphQLDemoAPI.Models.Employee;
-using GraphQLDemoAPI.Models.Queries;
 using GraphQLDemoAPI.Services;
-using GraphQLDemoAPI.Models.Mutations;
 using GraphQLDemoAPI.Models.Product;
+using GraphQLDemoAPI.Models.GraphQl.Mutations;
+using GraphQLDemoAPI.Models.GraphQl.Queries;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,9 +12,8 @@ var builder = WebApplication.CreateBuilder(args);
 //builder.Services.AddEndpointsApiExplorer();
 //builder.Services.AddSwaggerGen();
 
-builder.Services.AddSingleton<IBlobStorageService, BlobServiceService>(); // Upewnij siê, ¿e klasa serwisu nazywa siê BlobService
+builder.Services.AddSingleton<IServiceSender, ServiceBusSender>();
 builder.Services.AddSingleton<IProductService, ProductService>();
-builder.Services.AddSingleton<IEmployeeService, EmploeeService>();
 
 //GraphQL service registration
 builder.Services.AddSingleton<EmployeeQuery>();

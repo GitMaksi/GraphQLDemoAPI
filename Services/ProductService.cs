@@ -1,25 +1,46 @@
-﻿using GraphQLDemoAPI.Models.Product;
+﻿using Datamodels.Models.Product;
+using DataModels.Models.SBMessages;
 
 namespace GraphQLDemoAPI.Services
 {
     public class ProductService : IProductService
     {
-        private readonly IBlobStorageService blobStorageService;
+        private readonly IServiceSender serviceSender;
 
-        public ProductService(IBlobStorageService blobStorageService) 
+        public ProductService(IServiceSender serviceSender)
         {
-            this.blobStorageService = blobStorageService;
+            this.serviceSender = serviceSender;
         }
 
-        public async Task<ProductModel> CreateProduct(string productName, string productImageUrl)
+        public async Task<ProductModel> CreateProduct(ProductModel product)
         {
-            await this.blobStorageService.UploadProductJsonAsync(productName, productImageUrl);
+            await this.serviceSender.SendMessageAsync(new UpdateProductMessage() { Product = product });
 
-            return new ProductModel
-            {
-                ProductName = productName,
-                ProductImageUrl = productImageUrl
-            };
+            return product;
+        }
+
+        public async Task<ProductModel> DeleteProduct(string productName)
+        {
+            await this.serviceSender.SendMessageAsync(new DeleteProductMessage() { ProductName = productName });
+
+            return new ProductModel();
+        }
+
+        public Task<ProductModel> GetProduct(string productName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ProductModel> GetProducts()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ProductModel> UpdateProduct(ProductModel product)
+        {
+            await this.serviceSender.SendMessageAsync(new UpdateProductMessage() { Product = product });
+
+            return product;
         }
     }
 }
