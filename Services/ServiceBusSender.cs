@@ -10,7 +10,7 @@ namespace GraphQLDemoAPI.Services
         public async Task SendMessageAsync<T>(T serviceBusMessage) where T : IServiceBusMessage
         {
             var client = new ServiceBusClient("");
-            var sender = client.CreateSender("createproduct");
+            var sender = client.CreateSender("createproduct"); 
 
 
             var messageBody = JsonConvert.SerializeObject(serviceBusMessage);
