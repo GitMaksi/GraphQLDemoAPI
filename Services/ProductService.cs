@@ -36,7 +36,7 @@ namespace GraphQLDemoAPI.Services
             throw new NotImplementedException();
         }
 
-        public Task<ProductModel> UpdateProduct(ProductModel product)
+        public async Task<ProductModel> UpdateProduct(ProductModel product)
         {
             await this.serviceSender.SendMessageAsync(new UpdateProductMessage() { Product = product });
 
