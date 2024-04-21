@@ -22,13 +22,12 @@ namespace GraphQLDemoAPI.Services
         public async Task<ProductModel> DeleteProduct(string productName)
         {
             await this.serviceSender.SendMessageAsync(new DeleteProductMessage() { ProductName = productName });
-
             return new ProductModel();
         }
 
         public Task<ProductModel> GetProduct(string productName)
         {
-            throw new NotImplementedException();
+            return Task.FromResult(new ProductModel { ProductName = productName });
         }
 
         public Task<ProductModel> GetProducts()

@@ -1,8 +1,9 @@
-﻿using GraphQL.Types;
+﻿using Datamodels.Models.GraphQl.Mutations;
+using GraphQL.Types;
 using GraphQLDemoAPI.GraphQl.Query;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Datamodels.Models.GraphQl.Mutations
+namespace GraphQLDemoAPI.GraphQl
 {
     public class ProductDetailsSchema : Schema
     {

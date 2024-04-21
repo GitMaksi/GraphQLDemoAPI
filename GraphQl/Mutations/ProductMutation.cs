@@ -8,6 +8,7 @@ namespace Datamodels.Models.GraphQl.Mutations
 {
     public class ProductMutation : ObjectGraphType
     {
+        [Obsolete]
         public ProductMutation(IProductService productService)
         {
             Field<ProductType>(

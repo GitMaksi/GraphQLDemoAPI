@@ -8,16 +8,16 @@ namespace GraphQLDemoAPI.GraphQl.Query
 {
     public class ProductQuery : ObjectGraphType
     {
+        [Obsolete]
         public ProductQuery(IProductService productService)
         {
-            Field<ListGraphType<ProductType>>()
-             .Name("GetProduct")
-             .Argument<StringGraphType>("ProductName", "Use this argument to filter products by their name.")
-             .Resolve(context =>
-             {
-                 var productName = context.GetArgument<string>("ProductName");
-                 return productService.GetProduct(productName);
-             });
+            FieldAsync<ProductType>(
+           "getProduct",
+           arguments: new QueryArguments(new QueryArgument<StringGraphType> { Name = "productName" }),
+           resolve: async context => {
+               var productName = context.GetArgument<string>("productName");
+               return await productService.GetProduct(productName);
+           });
         }
     }
 }
